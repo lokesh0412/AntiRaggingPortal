@@ -17,6 +17,7 @@
 <!--  <mapping class="pk.Employee8080"/>  
  --> 
  <mapping class="model.UserLogin"></mapping>
+ <mapping class="model.UserRole"></mapping>
     </session-factory>  
   
 </hibernate-configuration>  
