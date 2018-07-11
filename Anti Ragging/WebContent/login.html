@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="bootstrap-4.1.1-dist/css/bootstrap.min.css">
+<script src="bootstrap-4.1.1-dist/js/bootstrap.min.js" ></script>
+<style>
+#main{
+width:450px;
+height:450px;
+margin-left:450px;
+margin-right:250px;
+margin-top:150px;
+margin-bottom:350px;
+}
+</style>
+</head> 
+  <body class="text-center">
+  <div id="main">
+    <form class="form-signin" action="LoginServlet">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="text" id="userName" class="form-control" placeholder="UserName" required autofocus name="userName">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="password" class="form-control" placeholder="Password" required name="password">
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
+    </div>
+</html>
