@@ -9,13 +9,13 @@ public class UserRole {
 private int id;
 	@Column(nullable=false)
 private String roleType;
-	public UserRole(String roleType, String status) {
+	public UserRole(String roleType, String accountStatus) {
 		super();
 		this.roleType = roleType;
-		this.status = status;
+		this.accountStatus = accountStatus;
 	}
 	@Column(nullable=false)
-private String status;
+private String accountStatus;
 	public int getId() {
 		return id;
 	}
@@ -28,17 +28,17 @@ private String status;
 	public void setRoleType(String roleType) {
 		this.roleType = roleType;
 	}
-	public String getStatus() {
-		return status;
+	public String getaccountStatus() {
+		return accountStatus;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setaccountStatus(String accountStatus) {
+		this.accountStatus = accountStatus;
 	}
-	public UserRole(int id, String roleType, String status) {
+	public UserRole(int id, String roleType, String accountStatus) {
 		super();
 		this.id = id;
 		this.roleType = roleType;
-		this.status = status;
+		this.accountStatus = accountStatus;
 	}
 	public UserRole() {
 		super();
