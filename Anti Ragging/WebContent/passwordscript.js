@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	alert("hi");
 	$("#password").keyup(
 			function(){
 				var pass=$("#password").val();
