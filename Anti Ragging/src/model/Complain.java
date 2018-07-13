@@ -3,14 +3,14 @@ package model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class complain implements Comparable<complain>,Serializable
+public class Complain implements Comparable<Complain>,Serializable
 {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private int	id;
-	private String 	complainantName;
+	private String 	ComplainantName;
 	private String victimName;
 	private String	email;
 	private String	mobileNumber;
@@ -21,10 +21,10 @@ public class complain implements Comparable<complain>,Serializable
 	private Date registeredOn;
 	private String raggingDetails;
     private byte[]	photoProof;
-	public complain() {
+	public Complain() {
 		super();
 		this.id = 0;
-		this.complainantName = null;
+		this.ComplainantName = null;
 		this.victimName = null;
 		this.email = null;
 		this.mobileNumber = null;
@@ -36,12 +36,12 @@ public class complain implements Comparable<complain>,Serializable
 		this.raggingDetails = null;
 		this.photoProof = null;
 	}
-	public complain(int id, String complainantName, String victimName, String email, String mobileNumber,
+	public Complain(int id, String ComplainantName, String victimName, String email, String mobileNumber,
 			String collegeName, String yourAddress, int pincode, String state, Date registeredOn, String raggingDetails,
 			byte[] photoProof) {
 		super();
 		this.id = id;
-		this.complainantName = complainantName;
+		this.ComplainantName = ComplainantName;
 		this.victimName = victimName;
 		this.email = email;
 		this.mobileNumber = mobileNumber;
@@ -53,11 +53,11 @@ public class complain implements Comparable<complain>,Serializable
 		this.raggingDetails = raggingDetails;
 		this.photoProof = photoProof;
 	}
-	public complain(String complainantName, String victimName, String email, String mobileNumber, String collegeName,
+	public Complain(String ComplainantName, String victimName, String email, String mobileNumber, String collegeName,
 			String yourAddress, int pincode, String state, Date registeredOn, String raggingDetails,
 			byte[] photoProof) {
 		super();
-		this.complainantName = complainantName;
+		this.ComplainantName = ComplainantName;
 		this.victimName = victimName;
 		this.email = email;
 		this.mobileNumber = mobileNumber;
@@ -76,10 +76,10 @@ public class complain implements Comparable<complain>,Serializable
 		this.id = id;
 	}
 	public String getComplainantName() {
-		return complainantName;
+		return ComplainantName;
 	}
-	public void setComplainantName(String complainantName) {
-		this.complainantName = complainantName;
+	public void setComplainantName(String ComplainantName) {
+		this.ComplainantName = ComplainantName;
 	}
 	public String getVictimName() {
 		return victimName;
@@ -142,7 +142,7 @@ public class complain implements Comparable<complain>,Serializable
 		this.photoProof = photoProof;
 	}
 	@Override
-	public int compareTo(complain arg0) {
+	public int compareTo(Complain arg0) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

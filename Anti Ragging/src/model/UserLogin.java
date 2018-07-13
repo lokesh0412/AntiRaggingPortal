@@ -11,6 +11,7 @@ private int id;
 private String username;
 	@Column(nullable=false)
 private String password;
+	@OneToOne
 private UserRole userRole;
 public int getId() {
 	return id;
