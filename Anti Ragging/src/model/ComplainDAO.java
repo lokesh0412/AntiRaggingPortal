@@ -4,6 +4,7 @@ import org.hibernate.Query;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.classic.Session;
+import org.hibernate.criterion.Projections;
 
 public class ComplainDAO {
 	public Session getSession() {
@@ -32,6 +33,12 @@ public class ComplainDAO {
 		Session session = getSession();
 		Query q = session.createQuery("FROM complain");
 			session.close();
+	}
+	public int getComplainsCount() {
+		Session session = getSession();
+		int n = (int)session.createCriteria("Complain").setProjection(Projections.rowCount()).uniqueResult();
+		session.close();
+		return n;
 	}
 }
 
