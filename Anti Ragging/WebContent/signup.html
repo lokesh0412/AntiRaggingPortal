@@ -254,6 +254,10 @@ window.onclick = function(event) {
 <script src="jquery.js"></script>
 <script src="matchPassword.js"></script>
 <script src="passwordscript.js"></script>
+<script src="angular.min.js"></script>
+<script src="main.js"></script>
+<script src="json.js"></script>
+
 <script>
 	$(function() {
 		$("#dialog").dialog();
@@ -361,7 +365,7 @@ body {
 						</div>
 						<div class="col-sm-6 form-group">
 							<label for="lname">LastName</label> <input type="text"
-								class="form-control" id="fname" placeholder="Enter last name"
+								class="form-control" id="lname" placeholder="Enter last name"
 								required>
 						</div>
 					</div>
@@ -417,10 +421,9 @@ body {
 				</div>
 
 				<button type="button" class="btn btn-lg btn-info">Submit</button>
+				<div id="div1"></div>
+			</div>
 			</div>
 	</form>
-	</div>
-
-
 </body>
 </html>

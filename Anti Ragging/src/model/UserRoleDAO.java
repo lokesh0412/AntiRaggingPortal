@@ -14,7 +14,7 @@ public class UserRoleDAO {
 	public void addUserRole(UserRole userRole) {
 		Session session = getSession();
 		Transaction trans = session.beginTransaction();
-		session.persist(userRole);
+		session.save(userRole);
 		trans.commit();
 		session.close();
 	}

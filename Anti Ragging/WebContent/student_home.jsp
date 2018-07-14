@@ -8,8 +8,5 @@
 </head>
 <body>
 <h1>Welcome ${sessionScope.username}</h1>
-<form action="controller/LogoutServlet">
-<input type="submit" value="logout">
-</form>
 </body>
 </html>

@@ -42,7 +42,6 @@ public class UserLoginDAO {
 		for(Object x:result) {
 			user=(UserLogin) x;
 		}
-		System.out.println(user);
 		if(user!=null) {
 			if(user.getUserRole().getRoleType().equals("admin")) {
 				validateUser="admin_type";

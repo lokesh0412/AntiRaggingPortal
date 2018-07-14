@@ -50,6 +50,11 @@ public UserLogin(String username, String password, UserRole userRole) {
 	this.password = password;
 	this.userRole = userRole;
 }
+public UserLogin(String username, String password) {
+	super();
+	this.username = username;
+	this.password = password;
+}
 public UserLogin() {
 	super();
 }

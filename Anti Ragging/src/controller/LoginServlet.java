@@ -23,7 +23,6 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("login servlet");
 		String username=request.getParameter("userName");
 		String password=request.getParameter("password");
 		UserLogin userLogin = new UserLogin();
@@ -32,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 	    String validateUser=new UserLoginDAO().authenticateUser(userLogin);
 	    if(validateUser.equals("admin_type")) {
 	    	HttpSession session = request.getSession();
-	    	session.setMaxInactiveInterval(10*60);
+	    	session.setMaxInactiveInterval(1*60);
 	    	session.setAttribute("username", username);
 	    	session.setAttribute("password", password);
 	        request.getRequestDispatcher("/admin_home.jsp").forward(request, response);
