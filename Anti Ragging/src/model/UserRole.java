@@ -14,7 +14,7 @@ private String roleType;
 		this.roleType = roleType;
 		this.accountStatus = accountStatus;
 	}
-	@Column(nullable=false)
+	@Column(name="status",nullable=false)
 private String accountStatus;
 	public int getId() {
 		return id;
