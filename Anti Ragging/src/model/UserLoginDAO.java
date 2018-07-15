@@ -1,4 +1,5 @@
 package model;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -18,6 +19,7 @@ public class UserLoginDAO {
 		Transaction trans = session.beginTransaction();
 		session.persist(userLogin);
 		trans.commit();
+		System.out.println("done");
 		session.close();
 	}
 	public UserLogin findUserLoginByUserName(String username) {

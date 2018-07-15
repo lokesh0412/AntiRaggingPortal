@@ -6,7 +6,6 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.classic.Session;
 
 public class UserDetailDAO {
-	public class FeedBackDAO {
 		public Session getSession() {
 			AnnotationConfiguration con = new AnnotationConfiguration();
 			con.configure("hibernate.cfg.xml");
@@ -41,4 +40,4 @@ public class UserDetailDAO {
 		}
 
 	}
-}
+

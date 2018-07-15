@@ -11,8 +11,10 @@ private int id;
 private String username;
 	@Column(nullable=false)
 private String password;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 private UserRole userRole;
+	@OneToOne(cascade=CascadeType.ALL)
+private UserDetail userDetail;
 public int getId() {
 	return id;
 }
@@ -61,6 +63,12 @@ public UserLogin() {
 @Override
 public String toString() {
 	return "UserLogin [id=" + id + ", username=" + username + ", password=" + password + "]";
+}
+public UserDetail getUserDetail() {
+	return userDetail;
+}
+public void setUserDetail(UserDetail userDetail) {
+	this.userDetail = userDetail;
 }
 
 }

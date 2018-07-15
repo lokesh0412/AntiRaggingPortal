@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 	    String validateUser=new UserLoginDAO().authenticateUser(userLogin);
 	    if(validateUser.equals("admin_type")) {
 	    	HttpSession session = request.getSession();
-	    	session.setMaxInactiveInterval(1*60);
+	    	session.setMaxInactiveInterval(10*60);
 	    	session.setAttribute("username", username);
 	    	session.setAttribute("password", password);
 	        request.getRequestDispatcher("/admin_home.jsp").forward(request, response);

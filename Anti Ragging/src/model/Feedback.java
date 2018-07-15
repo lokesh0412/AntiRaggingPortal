@@ -1,13 +1,25 @@
 package model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="feedback")
 public class Feedback {
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	@Column(nullable=false)
 	private String name;
+	@Column(nullable=false)
 	private String address;
+	@Column(nullable=false)
 	private String email;
+	@Column(nullable=false)
 	private int pincode;
+	@Column(nullable=false)
 	private String mobileNumber;
+	@Column(nullable=false)
 	private String state;
+	@Column(nullable=false)
 	private String feedback;
 	public Feedback() {
 		super();

@@ -10,6 +10,16 @@
 
 </head>
 <body>
+ <%HttpServletResponse httpResponse = (HttpServletResponse)response;
+
+httpResponse.setHeader("Cache-Control","no-cache, no-store, must-revalidate"); 
+response.addHeader("Cache-Control", "post-check=0, pre-check=0");
+httpResponse.setHeader("Pragma","no-cache"); 
+httpResponse.setDateHeader ("Expires", 0); 
+if (session.getAttribute("username") == null || session.getAttribute("password") == null ) {                               
+                 response.sendRedirect("/invalidSession.jsp");
+                 return;
+ } %> 
    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">

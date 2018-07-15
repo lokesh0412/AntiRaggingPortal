@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import com.ibm.icu.text.SimpleDateFormat;
 
 import model.UserDetail;
+import model.UserDetailDAO;
 import model.UserLogin;
 import model.UserLoginDAO;
 import model.UserRole;
@@ -47,17 +48,20 @@ public class SignUpServlet extends HttpServlet {
 	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("signup servlet is called");
 		String fname=request.getParameter("fname");
 		String lname=request.getParameter("lname");
 		String college=request.getParameter("college");
 		String dob=request.getParameter("dob");
+		System.out.println(dob);
 		String course=request.getParameter("course");
 		String address=request.getParameter("address");
 		String email=request.getParameter("email");
+		System.out.println(email);
 		String password=request.getParameter("password");
-		String phoneNumber=request.getParameter("phone");
+		String phoneNumber=request.getParameter("phoneNo");
 		Date date=new Date();
-		SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			date=sdf.parse(dob);
 		} catch (ParseException e) {
@@ -67,12 +71,12 @@ public class SignUpServlet extends HttpServlet {
 	    UserLogin user=new UserLogin(email,password);
 	    UserRole urole=new UserRole("student","active");
 	    user.setUserRole(urole);
-	    UserRoleDAO urdao=new UserRoleDAO();
+	    //UserRoleDAO urdao=new UserRoleDAO();
 	    UserLoginDAO uldao=new UserLoginDAO();
+	    UserDetail udetail=new UserDetail(fname, lname,date, college,  course, address, email,phoneNumber );
+	    user.setUserDetail(udetail);
 	    uldao.addUserLogin(user);
-	    urdao.addUserRole(urole);
-	    UserDetail udetail=new UserDetail(fname, lname,date, college,  course, address, email, phoneNumber);
-	    System.out.println("done");
+	    request.getRequestDispatcher("index.html").forward(request, response);
 	}
 
 }

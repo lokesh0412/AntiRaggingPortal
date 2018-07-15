@@ -1,19 +1,50 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
+import java.util.TreeSet;
 
+import javax.persistence.*;
+@Entity
+@Table(name="user_detail")
 public class UserDetail implements Comparable<UserDetail>,Serializable{
 private static final long serialVersionUID = 5731332744337394984L;
+@Id @GeneratedValue(strategy=GenerationType.AUTO)
 private int id;
+@Column(nullable=false)
 private String firstName;
+@Column(nullable=false)
 private String lastName;
+@Column(nullable=false)
 private Date dob;
+@Column(nullable=false)
 private String collegeName;
+@Column(nullable=false)
 private String course;
+@Column(nullable=false)
 private String address;
+@Column(nullable=false, unique=true)
 private String email;
+@Column(nullable=false,unique=true)
 private String phoneNumber;
+@OneToMany(mappedBy="userDetail",cascade=CascadeType.ALL)
+private Collection<Complain>complains=new TreeSet<>();
+@OneToOne(mappedBy="userDetail",cascade=CascadeType.ALL)
+private UserLogin userLogin;
+/*public UserLogin getUserLogin() {
+	return userLogin;
+}
+public void setUserLogin(UserLogin userLogin) {
+	this.userLogin = userLogin;
+}
+*/
+public Collection<Complain> getComplains() {
+	return complains;
+}
+public void setComplains(Collection<Complain> complains) {
+	this.complains = complains;
+}
 public UserDetail(int id, String firstName, String lastName, Date dob, String collegeName, String course,
 		String address, String email, String phoneNumber) {
 	super();
