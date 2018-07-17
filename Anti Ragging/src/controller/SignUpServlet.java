@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
@@ -11,17 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import com.anti.ragging.CheckMail;
 import com.ibm.icu.text.SimpleDateFormat;
 
 import model.UserDetail;
-import model.UserDetailDAO;
 import model.UserLogin;
 import model.UserLoginDAO;
 import model.UserRole;
-import model.UserRoleDAO;
 
 /**
  * Servlet implementation class SignUpServlet
@@ -45,8 +40,6 @@ public class SignUpServlet extends HttpServlet {
     
 	}
 
-	
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("signup servlet is called");
 		String fname=request.getParameter("fname");
@@ -68,15 +61,24 @@ public class SignUpServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		CheckMail c=new CheckMail();
+		if(c.checkMailAndPhoneNumber(email, phoneNumber)) {
+			request.getSession().setAttribute("errMsg", "email or phone no arleady registered with other account");
+			response.sendRedirect("signup.html");
+		}
+		else {
 	    UserLogin user=new UserLogin(email,password);
+	    System.out.println(user);
 	    UserRole urole=new UserRole("student","active");
 	    user.setUserRole(urole);
 	    //UserRoleDAO urdao=new UserRoleDAO();
 	    UserLoginDAO uldao=new UserLoginDAO();
 	    UserDetail udetail=new UserDetail(fname, lname,date, college,  course, address, email,phoneNumber );
+	    System.out.println(udetail);
 	    user.setUserDetail(udetail);
 	    uldao.addUserLogin(user);
 	    request.getRequestDispatcher("index.html").forward(request, response);
+	}
 	}
 
 }

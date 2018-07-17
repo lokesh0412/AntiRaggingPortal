@@ -6,7 +6,6 @@ import org.hibernate.classic.Session;
 import org.hibernate.criterion.Projections;
 
 public class ComplaintResponseDAO {
-	public class FeedBackDAO {
 		public Session getSession() {
 			AnnotationConfiguration con = new AnnotationConfiguration();
 			con.configure("hibernate.cfg.xml");
@@ -36,4 +35,4 @@ public class ComplaintResponseDAO {
 		return n;
 	}
 }
-}
+

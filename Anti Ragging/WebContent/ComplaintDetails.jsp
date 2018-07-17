@@ -107,60 +107,64 @@ body {
 </style>
 </head>
 <body class="text-center" style = "background-color : #E3F79E">
-
+<% 
+    if(session.getAttribute("username")==null)
+    	response.sendRedirect("login.html");
+	%>
 	<div class="container">
 		<h1 class="well">COMPLAINT DETAILS</h1>
 		<div class="col-lg-12 well">
 			<div class="row">
-				<form>
+				<form action="ComplainServlet" method="post">
 					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-sm-6 form-group">
-								<label>Complainant Name</label> <input type="text"
+								<label>Complainant Name</label> <input type="text" id="complaintName" name="complaintName"
 									placeholder="Enter First Name Here.." class="form-control">
 							</div>
 							<div class="col-sm-6 form-group">
-								<label>Victim Name</label> <input type="text"
+								<label>Victim Name</label> <input type="text" id="victimName" name="victimName"
 									placeholder="Enter Last Name Here.." class="form-control">
 							</div>
 						</div>
 						
 						<div class = "row">
 						<div class="col-sm-6 form-group">
-							<label>Phone Number</label> <input type="Number"
+							<label>Phone Number</label> <input type="Number" id="phoneNo" name="phoneNo"
 								placeholder="Enter Phone Number Here.." class="form-control">
 						</div>
 						<div class="col-sm-6 form-group">
-							<label>Email Address</label> <input type="email"
+							<label>Email Address</label> <input type="email" id="email" name="email"
 								placeholder="Enter Email Address Here.." class="form-control">
 						</div>
 						</div>
 						
 						<div class="form-group">
 							<label>College Name</label>
-							<input type="text" placeholder="Enter College Name Here.." class="form-control"></textarea>
+							<input type="text" id="college" name="college" placeholder="Enter College Name Here.." class="form-control"></textarea>
 						</div>
 						
 				     		<div class="row">
 							<div class="col-sm-4 form-group">
-								<label>City</label> <input type="text"
+								<label>City</label> <input type="text" id="city" name="city"
 									placeholder="Enter City Name Here.." class="form-control">
 							</div>
 							<div class="col-sm-4 form-group">
-								<label>State</label> <input type="text"
+								<label>State</label> <input type="text" id="state" name="state"
 									placeholder="Enter State Name Here.." class="form-control">
 							</div>
 							<div class="col-sm-4 form-group">
-								<label>Pin code</label> <input type="text"
+								<label>Pin code</label> <input type="Number" id="pinCode" name="pinCode"
 									placeholder="Enter Pin Code Here.." class="form-control">
 							</div>
 						
 						<div class="form-group">
 							<label>Complaint</label>
-							<textarea placeholder="Enter Complaint Here.." rows="3"
+							<textarea placeholder="Enter Complaint Here.." id="complaint" name= "complaint" rows="3"
 								class="form-control"></textarea>
 						</div>
-						<button type="button" class="btn btn-lg btn-info">Submit</button>
+						<button type="submit" class="btn btn-lg btn-info">Submit</button>
+					</div>
 					</div>
 				</form>
 			</div>

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.ComplaintResponse;
+import model.ComplaintResponseDAO;
+
 /**
  * Servlet implementation class ResponseServlet
  */
@@ -34,8 +37,11 @@ public class ResponseServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String status=request.getParameter("status");
+	    String action=request.getParameter("action");
+	    ComplaintResponse complaintResponse=new ComplaintResponse(status,action);
+	    ComplaintResponseDAO obj=new ComplaintResponseDAO();
+	    obj.addComplaintResponse(complaintResponse);
 	}
 
 }

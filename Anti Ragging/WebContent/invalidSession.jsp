@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Your session has been expired
+${requestScope.getAttribute("msg")}
 </body>
 </html>

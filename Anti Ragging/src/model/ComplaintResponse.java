@@ -13,22 +13,22 @@ public class ComplaintResponse implements Comparable<ComplaintResponse>,Serializ
 	@Column(nullable=false)
 	private String status;
 	@Column(nullable=false)
-	private String message;
+	private String Action;
 	@OneToOne
 	private Complain complain;
 	public ComplaintResponse() {
 		super();
 	}
-	public ComplaintResponse(String status, String message) {
+	public ComplaintResponse(String status, String Action) {
 		super();
 		this.status = status;
-		this.message = message;
+		this.Action = Action;
 	}
-	public ComplaintResponse(int id, String status, String message) {
+	public ComplaintResponse(int id, String status, String Action) {
 		super();
 		this.id = id;
 		this.status = status;
-		this.message = message;
+		this.Action = Action;
 	}
 	public int getId() {
 		return id;
@@ -42,18 +42,18 @@ public class ComplaintResponse implements Comparable<ComplaintResponse>,Serializ
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getMessage() {
-		return message;
+	public String getAction() {
+		return Action;
 	}
-	public void setMessage(String message) {
-		this.message = message;
+	public void setAction(String Action) {
+		this.Action = Action;
 	}
 	public Complain getComplain() {
 		return complain;
 	}
 	@Override
 	public String toString() {
-		return "ComplaintResponse [id=" + id + ", status=" + status + ", message=" + message 
+		return "ComplaintResponse [id=" + id + ", status=" + status + ", Action=" + Action 
 				+ "]";
 	}
 	public void setComplain(Complain complain) {

@@ -17,7 +17,7 @@ response.addHeader("Cache-Control", "post-check=0, pre-check=0");
 httpResponse.setHeader("Pragma","no-cache"); 
 httpResponse.setDateHeader ("Expires", 0); 
 if (session.getAttribute("username") == null || session.getAttribute("password") == null ) {                               
-                 response.sendRedirect("/invalidSession.jsp");
+                 response.sendRedirect("invalidSession.jsp");
                  return;
  } %> 
    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
