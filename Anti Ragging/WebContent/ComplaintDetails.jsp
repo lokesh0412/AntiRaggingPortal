@@ -107,6 +107,7 @@ body {
 </style>
 </head>
 <body class="text-center" style = "background-color : #E3F79E">
+<jsp:include page="navbarjsp.jsp" />
 <% 
     if(session.getAttribute("username")==null)
     	response.sendRedirect("login.html");

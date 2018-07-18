@@ -107,7 +107,7 @@ body {
 </style>
 </head>
 <body class="text-center" style = "background-color : #E3F79E">
-
+<jsp:include page="navbarjsp.jsp" />
 	<div class="container">
 		<h1 class="well">FEEDBACK</h1>
 		<div class="col-lg-12 well">

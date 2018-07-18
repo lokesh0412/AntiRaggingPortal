@@ -32,9 +32,7 @@ public class UserLoginDAO {
 		}
 		return u;
 	}
-	public String authenticateUser(UserLogin userLogin) {
-		System.out.println(userLogin);
-		String validateUser="credentials does not exits";
+	public UserLogin authenticateUser(UserLogin userLogin) {
 		Session session = getSession();
 		Query q = session.createQuery("SELECT user FROM UserLogin user WHERE user.username=:u and user.password=:p");
 		q.setString("u", userLogin.getUsername());
@@ -44,15 +42,6 @@ public class UserLoginDAO {
 		for(Object x:result) {
 			user=(UserLogin) x;
 		}
-		if(user!=null) {
-			if(user.getUserRole().getRoleType().equals("admin")) {
-				validateUser="admin_type";
+        return user;
 			}
-			else if(user.getUserRole().getRoleType().equals("student")) {
-				validateUser="student_type";
-			}
-		}
-		System.out.println(validateUser);
-		return validateUser;
-	}
 }

@@ -28,24 +28,24 @@ public class LoginServlet extends HttpServlet {
 		UserLogin userLogin = new UserLogin();
 		userLogin.setUsername(username);
 		userLogin.setPassword(password);
-	    String validateUser=new UserLoginDAO().authenticateUser(userLogin);
-	    if(validateUser.equals("admin_type")) {
+	    UserLogin user=new UserLoginDAO().authenticateUser(userLogin);
+	    if(user!=null) {
+	    if(user.getUserRole().getRoleType().equals("admin")) {
 	    	HttpSession session = request.getSession();
 	    	session.setMaxInactiveInterval(10*60);
-	    	session.setAttribute("username", username);
-	    	session.setAttribute("password", password);
+	    	session.setAttribute("user", user);
 	        request.getRequestDispatcher("/admin_home.jsp").forward(request, response);
 	    }
-	    else if(validateUser.equals("student_type")) {
+	    else if(user.getUserRole().getRoleType().equals("student")) {
 	    	HttpSession session = request.getSession();
 	    	session.setMaxInactiveInterval(10*60);
-	    	session.setAttribute("username", username);
-	    	session.setAttribute("password", password);
-	        request.getRequestDispatcher("/student_home.jsp").forward(request, response);	    	
+	    	session.setAttribute("user",user);
+	        request.getRequestDispatcher("/student_dashboard2.jsp").forward(request, response);	    	
+	    }
 	    }
 	    else
 	    {
-	     request.setAttribute("errMessage", validateUser);
+	     request.setAttribute("errMessage", "username or password is wrong");
 	     request.getRequestDispatcher("/login.html").forward(request, response);
 	    }
 	
