@@ -71,7 +71,7 @@
              <div class="col-md-3 head-main">
 
                         <i class="fa fa-check" style="color:#47d147"></i>
-                         <h3>  <a href="" style="color:#47d147">STATUS</a></h3>
+                         <h3>  <a href="status.jsp" style="color:#47d147">STATUS</a></h3>
           
                  </div>
              <div class="col-md-3 head-main">
