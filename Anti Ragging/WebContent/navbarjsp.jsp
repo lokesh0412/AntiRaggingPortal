@@ -67,7 +67,7 @@
 						UserLogin user=(UserLogin)session.getAttribute("user");
 						out.print(user.getUserDetail().getFirstName());}%></strong></a>
 					<div class="dropdown-content">
-							<p><a href="student_dashboard.html">PROFILE</a>
+							<p><a href="profile.jsp">PROFILE</a>
 							<br>
 							<a href="LogoutServlet">LOG OUT</a>
 							</p>
