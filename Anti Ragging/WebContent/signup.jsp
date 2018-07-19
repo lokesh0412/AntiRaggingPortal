@@ -21,7 +21,7 @@
 <script src="jquery.js"></script>
 <script src="matchPassword.js"></script>
 <script src="passwordscript.js"></script>
-<script src="angular.min.js"></script>
+<script src="reEnterPassword.js"></script>
 <script src="main.js"></script>
 <script src="json.js"></script>
 

@@ -113,7 +113,7 @@ margin-top:50px;
 <jsp:include page="navbarjsp.jsp" />
 <% 
     if(session.getAttribute("user")==null)
-    	response.sendRedirect("login.html");
+    	response.sendRedirect("login.jsp");
 	%>
 	<div class="main">
 	<div class="container">
