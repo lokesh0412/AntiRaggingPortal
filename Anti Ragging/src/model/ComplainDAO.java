@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -29,16 +31,23 @@ public class ComplainDAO {
 		return comp;
 	}
 	
-	public void getAllComplains() {
+	public List getAllComplains() {
 		Session session = getSession();
-		Query q = session.createQuery("FROM complain");
-			session.close();
+		Query q = session.createQuery("FROM Complain");
+		List result = q.list();
+		session.close();
+		return result;	
 	}
 	public int getComplainsCount() {
 		Session session = getSession();
 		int n = (int)session.createCriteria("Complain").setProjection(Projections.rowCount()).uniqueResult();
 		session.close();
 		return n;
+	}
+	public Complain  findComplainStatusByComplainId(int complainId) {
+		Session session = getSession();
+		 Complain result = (Complain)session.get(Complain.class, complainId);
+		 return result;
 	}
 }
 

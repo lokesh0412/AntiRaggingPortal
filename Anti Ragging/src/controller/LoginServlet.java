@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 	    	HttpSession session = request.getSession();
 	    	session.setMaxInactiveInterval(10*60);
 	    	session.setAttribute("user", user);
-	        request.getRequestDispatcher("/admin_home.jsp").forward(request, response);
+	        request.getRequestDispatcher("/admin_dashboard.jsp").forward(request, response);
 	    }
 	    else if(user.getUserRole().getRoleType().equals("student")) {
 	    	HttpSession session = request.getSession();

@@ -7,11 +7,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.anti.ragging.ComplainIdGenerator;
+import com.anti.ragging.MailAcknowledgement;
 
 import model.Complain;
 import model.ComplainDAO;
+import model.UserLogin;
 
 /**
  * Servlet implementation class ComplainServlet
@@ -52,8 +55,15 @@ public class ComplainServlet extends HttpServlet {
 	    byte[]	photoProof=new byte[0];
 	    int id=new ComplainIdGenerator().generateComplainId();
 	    Complain complain=new Complain(id,ComplainantName,victimName,email,mobileNumber,collegeName,yourAddress,pincode,state,date,raggingDetails,photoProof);
-	    		ComplainDAO cdao=new ComplainDAO();
-	    		cdao.addComplain(complain);
+	    ComplainDAO cdao=new ComplainDAO();
+	    cdao.addComplain(complain);
+	    HttpSession session = request.getSession(false);
+	    UserLogin user = (UserLogin)session.getAttribute("user");
+	    String fname=user.getUserDetail().getFirstName();
+	    String to=user.getUserDetail().getEmail();
+	    String message="hi"+" "+fname+" "+"you have added a complain which has a complain Id as"+" "+id+" "+"you can check status of complain with thid id";
+	    MailAcknowledgement.sendMail(to, message);
+	    response.sendRedirect("student_dash");
 	}
 
 }

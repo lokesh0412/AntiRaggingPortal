@@ -24,6 +24,4 @@
 <mapping class="model.Complain"></mapping>
     </session-factory>  
   
-</hibernate-configuration>  
-
-
+</hibernate-configuration> 

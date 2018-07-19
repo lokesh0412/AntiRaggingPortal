@@ -87,6 +87,9 @@ body {
 .marketing p+h4 {
 	margin-top: 28px;
 }
+.main{
+margin-top:50px;
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -112,6 +115,7 @@ body {
     if(session.getAttribute("user")==null)
     	response.sendRedirect("login.html");
 	%>
+	<div class="main">
 	<div class="container">
 		<h1 class="well">COMPLAINT DETAILS</h1>
 		<div class="col-lg-12 well">
@@ -171,7 +175,6 @@ body {
 			</div>
 		</div>
 	</div>
-
-
+	</div>
 </body>
 </html>
