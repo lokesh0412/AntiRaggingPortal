@@ -130,7 +130,7 @@ body {
 				</div>
 
 				<div class="form-group">
-					<label>Complaint Response</label>
+					<label>Complaint Respons</label>
 					<textarea placeholder="Enter the Response Here.."
 						id="complaintResponse" name="complaintResponse" rows="3"
 						class="form-control"></textarea>
