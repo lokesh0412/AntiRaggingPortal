@@ -36,9 +36,8 @@
 						<div class="panel panel-info">
 							<div class="panel-heading">
 								<div class="panel-title">Sign In</div>
-								<div
-									style="float: right; font-size: 80%; position: relative; top: -10px">
-									<a href="#">Forgot password?</a>
+								<div style="float: right; font-size: 80%; position: relative; top: -10px">
+									<a href="forgotPassword.html">Forgot password?</a>
 								</div>
 							</div>
 							<div style="padding-top: 30px" class="panel-body">
