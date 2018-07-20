@@ -8,13 +8,13 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <title>Anti-Ragging Portal</title>
-
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!--    Google Fonts-->
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
 
-<!--Fontawesom-->
+<!--Fontawesome-->
 <link rel="stylesheet" href="css/font-awesome.min.css">
 
 <!--Animated CSS-->
@@ -69,13 +69,13 @@
 						<ul class="nav navbar-nav navbar-right main_menu">
 							<li class="active"><a href="#header">Home <span
 									class="sr-only">(current)</span></a></li>
-							<li><a href="#welcome">About</a></li>
+							<li><a href="#welcome" onclick="document.getElementById('id01').style.display='block'">About</a></li>
 							<li><a href="#portfolio">Information Pack</a></li>
 							<li><a href="login.jsp">Login</a></li>
 							<li><a href="signup.jsp">Sign up</a></li>
 							<li><a href="Feedback.jsp">Feedback</a></li>
 							<li><a href="#blog">FAQs</a></li>
-							<li><a href="#contact">contact us</a></li>
+							<li><a href="#contact" onclick="document.getElementById('id02').style.display='block'">contact us</a></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
@@ -105,74 +105,146 @@
 				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
 			</ol>
 
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<div class="slider_overlay">
-						<img src="img/antiragg.jpg" alt="...">
-						<div class="carousel-caption">
-							<div class="slider_text">
-								<h3>Say No To</h3>
-								<h2>Ragging</h2>
-								<p>Ragging is a crime</p>
-								<a href="" class="custom_btn">Read More</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End of item With Active-->
-				<div class="item">
-					<div class="slider_overlay">
-						<img src="img/antira.jpg" alt="...">
-						<div class="carousel-caption">
-							<div class="slider_text">
-								<h3>Say No To</h3>
-								<h2>Ragging</h2>
-								<p>Ragging is a crime</p>
-								<a href="" class="custom_btn">Read More</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End of Item-->
-				<div class="item">
-					<div class="slider_overlay">
-						<img src="img/antire.jpg" alt="...">
-						<div class="carousel-caption">
-							<div class="slider_text">
-								<h3>Say No To</h3>
-								<h2>Ragging</h2>
-								<p>Ragging is a crime</p>
-								<a href="" class="custom_btn">Read More</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End of item-->
-			</div>
-			<!--End of Carousel Inner-->
-		</div>
-	</section>
-	<!--end of slider section-->
+			 <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <div class="slider_overlay">
+                            <img src="img/antiragg.jpg" alt="...">
+                            <div class="carousel-caption">
+                                <div class="slider_text">
+                                    <h3>Say No To</h3>
+                                    <h2>Ragging</h2>
+                                    <p>Ragging is a crime</p>
+									
+                                   <!-- <a href="" class="custom_btn">Read  More</a>-->
+								   <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green">Read More</button>
 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of item With Active-->
+                    <div class="item">
+                        <div class="slider_overlay">
+                            <img src="img/antira.jpg" alt="...">
+                            <div class="carousel-caption">
+                                <div class="slider_text">
+                                    <h3>Say No To</h3>
+                                    <h2>Ragging</h2>
+                                    <p>Ragging is a crime</p>
+                                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of Item-->
+                    <div class="item">
+                        <div class="slider_overlay">
+                            <img src="img/antire.jpg" alt="...">
+                            <div class="carousel-caption">
+                                <div class="slider_text">
+                                    <h3>Say No To</h3>
+                                    <h2>Ragging</h2>
+                                    <p>Ragging is a crime</p>
+                                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green">Read More</button>
+									</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of item-->
+                </div>
+                <!--End of Carousel Inner-->
+            </div>
+        </section>
+        <!--end of slider section-->
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-green"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>About</h2>
+      </header>
+      <div class="w3-container">
+	  <p></p>
+	  <br>
+        <p>Ragging has ruined countless innocent lives and careers. In order to eradicate it, Hon’ble Supreme Court in Civil Appeal No. 887 of 2009, passed the judgement wherein guidelines were issued for setting up of a Central Crisis Hotline and Anti-Ragging database. 
+
+ </p>
+ <br>
+        <p>In accordance with the orders, UGC (University Grants Commission), Govt. of India has developed this web portal. </p>
+	<br>	<p>This portal will contain:
+</p>
+<br>
+<p>
+       1. A form for registering complaints regarding ragging.
+</p>
+<br>
+<p>
+       2. Record of registered complaints received and the status of the action taken. 
+</p><br><p>
+The aim of the portal is to eliminate ragging in all its forms from universities, deemed universities and other higher educational institutions in the country. This will be achieved by preventing its occurrence and punishing those who indulge in ragging, in accordance with the Supreme Court Regulations.</p>
+  <br>
+<p></p>  </div>
+      <footer class="w3-container w3-green">
+	  
+        <p>Copyright 2018.</p>
+      </footer>
+    </div>
+  </div>
+<!--contact us-->
+<div id="id02" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-green"> 
+        <span onclick="document.getElementById('id02').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Contact Us</h2>
+      </header>
+      <div class="w3-container">
+	  <p></p>
+	  <br>
+        <p>You can contact us on:		
+</p>
+<br>
+<p>1.Name:Rajat Yadav</p>
+<p>	 Mobile No.:8887737181<p>
+<p>	 Email:rajatrkrockstar@gmail.com</p>	
+<br>
+<br>
+ <p>1.Name:Roopak Singh</p>
+<p>	 Mobile No.:9457526577<p>
+<p>	 Email:singhroopak5@gmail.com</p>	
+<br>
+<br>
+<p>1.Name:Lokesh Kr. Tiwari</p>
+<p>	 Mobile No.:8470988708<p>
+<p>	 Email:lokesh0412@gmail.com</p>	
+<br>
+<br>
+      <footer class="w3-container w3-green">
+	  
+        <p>Copyright 2018.</p>
+      </footer>
+    </div>
+  </div>
+  </div>
+
+<!--contact us-->
 
 	<section id="volunteer">
-		<div class="container">
-			<div class="row vol_area">
-				<div class="col-md-4">
-					<div class="volunteer_content">
-						<h3>
-							<span></span>
-						</h3>
-
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
+            <div class="container">
+                <div class="row vol_area">
+                    <div class="col-md-4">
+                        <div class="volunteer_content">
+                            <h3><span></span></h3>
+             
+                        </div>
+                    </div>
+      
+                </div>
+              
+            </div>
+           
+        </section>
 	<!--Start of counter-->
 	<section id="counter">
 		<div class="counter_img_overlay">
@@ -262,7 +334,7 @@
 						<div class="col-md-6 zero_mp">
 							<div class="event_item">
 								<div class="event_img">
-									<img src="img/news1.jpg" alt="">
+									<img src="img/news1.JPG" alt="">
 								</div>
 							</div>
 						</div>
