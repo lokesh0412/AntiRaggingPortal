@@ -21,7 +21,7 @@ import model.UserRole;
 /**
  * Servlet implementation class SignUpServlet
  */
-@WebServlet("/SignUpServlet")
+@WebServlet("/CollegeAdmin")
 public class CollegeAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
