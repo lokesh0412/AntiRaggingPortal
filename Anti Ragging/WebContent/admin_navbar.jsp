@@ -52,11 +52,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="student_dashboard2.jsp">HOME</a>
                     </li>
-                    <li><a href="ComplaintDetails.jsp">ADD COMPLAIN</a>
+                    <li><a href="allComplains.jsp">COMPLAINS</a>
                     </li>
-                    <li><a href="Feedback.jsp">FEEDBACK</a>
-                    </li>
-                    <li><a href="#free-text">STATUS</a>
+                    <li><a href="Feedback.jsp">FEEDBACKS</a>
                     </li>
                      <li><a href="#contact">CONTACT</a>
                     </li>
@@ -68,8 +66,10 @@
 					UserLogin user=(UserLogin)session.getAttribute("user");
 					out.print(user.getUserDetail().getFirstName());}%></strong></a>
 					<div class="dropdown-content">
-							<p><a href="student_dashboard.html">PROFILE</a>
+							<p><a href="profile.jsp">PROFILE</a>
 							<br>
+							<a href="changePassword.jsp">CHANGE PASSWORD</a>
+							<br />
 							<a href="LogoutServlet">LOG OUT</a>
 							</p>
                     </div>

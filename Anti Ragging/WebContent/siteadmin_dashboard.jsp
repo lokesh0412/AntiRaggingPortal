@@ -33,7 +33,7 @@
 }
 </style>
     
-<title>Insert title here</title>
+<title>Anti-ragging portal</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -52,24 +52,26 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="student_dashboard2.jsp">HOME</a>
                     </li>
-                    <li><a href="ComplaintDetails.jsp">ADD COMPLAIN</a>
+                    <li><a href="allComplains.jsp">ADD USER</a>
                     </li>
-                    <li><a href="Feedback.jsp">FEEDBACK</a>
+                    <li><a href="Feedback.jsp">UPDATE USER</a>
                     </li>
-                    <li><a href="status.jsp">STATUS</a>
+                    <li><a href="Feedback.jsp">DELETE USER</a>
                     </li>
-                     <li><a href="#contact">CONTACT</a>
+                     <li><a href="#contact">USERS</a>
                     </li>
-                    <li><!-- <a href="#"><strong>e-mail:</strong>  info@yourdomain.com</a> -->
+                    <li>
                     <div class=dropdown>
 					<br>
-					<a href="#"><strong><%if(session.getAttribute("user")!=null){
-						UserLogin user=(UserLogin)session.getAttribute("user");
-						out.print(user.getUserDetail().getFirstName());}%></strong></a>
+					<a href="#"><strong><% 
+					if(session.getAttribute("user")!=null){
+					UserLogin user=(UserLogin)session.getAttribute("user");
+					out.print(user.getUserDetail().getFirstName());}%></strong></a>
 					<div class="dropdown-content">
 							<p><a href="profile.jsp">PROFILE</a>
 							<br>
-							<a href="changePassword.jsp">CHANGE PASSWORD</a><br />
+							<a href="changePassword.jsp">CHANGE PASSWORD</a>
+							<br />
 							<a href="LogoutServlet">LOG OUT</a>
 							</p>
                     </div>
