@@ -109,33 +109,36 @@ body {
 </style>
 </head>
 <body class="text-center" style="background-color: #E3F79E">
-	<form action="" method="post">
+<jsp:include page="admin_navbar.jsp" />
+	<form action="ResponseServlet" method="post">
 		<div class="container">
 			<h1 class="well">Complaint Response</h1>
 			<div class="col-lg-12 well">
 
-			<div class="form-group">
+				<div class="form-group">
 					<label for="status">Complaint Id</label> <input type="text"
-						class="form-control" id="ComplaintId" name="ComplaintId"
+						class="form-control" id="ComplaintId" name="ComplaintId" value="${param.id}"
 						placeholder="Enter the Id of Complaint" required>
 				</div>
 
-
-
-
 				<div class="form-group">
-					<label for="status">Status of Complaint</label> <input type="text"
-						class="form-control" id="status" name="status"
-						placeholder="Enter Status of Complaint" required>
+					<label for="status">Status</label> <select class="form-control"
+						id="status" name="status">
+						<option>....Select the Status....</option>
+						<option>Complaint Accepted</option>
+						<option>Investigation Started</option>
+						<option>Investigation Finished</option>
+						<option>FIR registered</option>
+						<option>Final Action Taken</option>
+						<option>Case Closed</option>
+					</select>
 				</div>
-
 				<div class="form-group">
-					<label>Complaint Respons</label>
-					<textarea placeholder="Enter the Response Here.."
-						id="complaintResponse" name="complaintResponse" rows="3"
+					<label>Status Information</label>
+					<textarea placeholder="Enter the Information Here.." name="message"
+						id="statusInformation" name="statusInformation" rows="3"
 						class="form-control"></textarea>
 				</div>
-
 
 				<button type="submit" class="btn btn-lg btn-info">Submit</button>
 				<div id="div1"></div>
@@ -145,4 +148,4 @@ body {
 	</form>
 </body>
 </html>
-l>
+

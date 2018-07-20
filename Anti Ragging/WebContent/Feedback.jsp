@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -15,7 +15,7 @@
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+---- Include the above in your HEAD tag --------
 <script>
 	$(function() {
 		$("#dialog").dialog();
@@ -106,7 +106,7 @@ body {
 }
 </style>
 </head>
-<body class="text-center" style = "background-color : #E3F79E">
+<body class="text-center" style = "background-color : #E3F79E"> -->
 <% 
     if(session.getAttribute("user")==null)
     	response.sendRedirect("login.jsp");
@@ -114,7 +114,7 @@ body {
 <jsp:include page="navbarjsp.jsp" />
 	<div class="container">
 		<h1 class="well">FEEDBACK</h1>
-		<div class="col-lg-12 well">
+		<div class="col-sm-12 well">
 			<div class="row">
 				<form action="FeedbackServlet" method="post">
 					<div class="col-sm-12">
@@ -163,5 +163,5 @@ body {
 	</div>
 
 
-</body>
-</html>
+<!-- </body>
+</html> -->
