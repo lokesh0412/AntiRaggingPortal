@@ -14,6 +14,7 @@ import com.anti.ragging.MailAcknowledgement;
 
 import model.Complain;
 import model.ComplainDAO;
+import model.UserDetailDAO;
 import model.UserLogin;
 
 /**
@@ -53,17 +54,17 @@ public class ComplainServlet extends HttpServlet {
 		Date date = new Date();
 		String raggingDetails = request.getParameter("complaint");
 	    byte[]	photoProof=new byte[0];
-	    int id=new ComplainIdGenerator().generateComplainId();
-	    Complain complain=new Complain(id,ComplainantName,victimName,email,mobileNumber,collegeName,yourAddress,pincode,state,date,raggingDetails,photoProof);
-	    ComplainDAO cdao=new ComplainDAO();
-	    cdao.addComplain(complain);
 	    HttpSession session = request.getSession(false);
 	    UserLogin user = (UserLogin)session.getAttribute("user");
+	    int id=new ComplainIdGenerator().generateComplainId();
+	    Complain complain=new Complain(id,ComplainantName,victimName,email,mobileNumber,collegeName,yourAddress,pincode,state,date,raggingDetails,photoProof,user.getUserDetail().getId());
 	    String fname=user.getUserDetail().getFirstName();
+	   ComplainDAO cdao = new ComplainDAO();
+	   cdao.addComplain(complain);
 	    String to=user.getUserDetail().getEmail();
 	    String message="hi"+" "+fname+" "+"you have added a complain which has a complain Id as"+" "+id+" "+"you can check status of complain with thid id";
 	    MailAcknowledgement.sendMail(to, message);
-	    response.sendRedirect("student_dash");
+	    response.sendRedirect("student_dashboard2.jsp");
 	}
 
 }

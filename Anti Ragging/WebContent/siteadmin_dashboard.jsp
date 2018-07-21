@@ -52,7 +52,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="student_dashboard2.jsp">HOME</a>
                     </li>
-                    <li><a href="allComplains.jsp">ADD USER</a>
+                    <li><a href="addUser.html">ADD USER</a>
                     </li>
                     <li><a href="Feedback.jsp">UPDATE USER</a>
                     </li>
@@ -69,9 +69,9 @@
 					out.print(user.getUserDetail().getFirstName());}%></strong></a>
 					<div class="dropdown-content">
 							<p><a href="profile.jsp">PROFILE</a>
-							<br>
+				             <br>
 							<a href="changePassword.jsp">CHANGE PASSWORD</a>
-							<br />
+							<br>
 							<a href="LogoutServlet">LOG OUT</a>
 							</p>
                     </div>

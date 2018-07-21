@@ -15,19 +15,34 @@
 </head>
 <body>
 	<jsp:include page="navbarjsp.jsp" />
-	<form>
+	<form action="StatusCheck" method="post">
 		<div id="content">
 			<div class="form-group" class="row">
 				<div class="col-sm-4">
-					<label>Complain ID</label> <input type="text" class="form-control"
+					<label>Complain ID</label> <input type="text" class="form-control" name="complainId"
 						placeholder="complain id goes here..." /><br />
 					<div class="col-sm-4">
-						<input type="button" value="check"
+						<input type="submit" value="check"
 							class=" btn btn-primary btn-block">
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
+<table>
+<thead>
+<tr>
+<td>ComplainId</td>
+<td>Status</td>
+<td>Message</td>
+</tr>
+</thead>
+<tr>
+<td>${param.complainId}</td>
+<td>${param.status}</td>
+<td>${param.message}</td>
+
+</tr>
+</table>
 </body>
 </html>

@@ -77,7 +77,8 @@ public class SignUpServlet extends HttpServlet {
 	    System.out.println(udetail);
 	    user.setUserDetail(udetail);
 	    uldao.addUserLogin(user);
-	    request.getRequestDispatcher("index.html").forward(request, response);
+	    request.setAttribute("alertMsg", "user added successfully");
+	    request.getRequestDispatcher("signup.jsp").include(request, response);
 	}
 	}
 

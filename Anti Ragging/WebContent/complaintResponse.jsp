@@ -117,7 +117,7 @@ body {
 
 				<div class="form-group">
 					<label for="status">Complaint Id</label> <input type="text"
-						class="form-control" id="ComplaintId" name="ComplaintId" value="${param.id}"
+						class="form-control" id="ComplaintId" name="complaintId" value="${param.id}"
 						placeholder="Enter the Id of Complaint" required>
 				</div>
 

@@ -44,4 +44,16 @@ public class UserLoginDAO {
 		}
         return user;
 			}
+	public String findPasswordByEmailId(String email) {
+		Session session = getSession();
+		Query q = session.createQuery("SELECT u FROM UserLogin u WHERE u.username=:e");
+		q.setString("e", email);
+		List result = q.list();
+		String pass=null;
+		for(Object x:result) {
+			UserLogin u=(UserLogin)x;
+			pass=u.getPassword();
+		}
+		return pass;
+	}
 }

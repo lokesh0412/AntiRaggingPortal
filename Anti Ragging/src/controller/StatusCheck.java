@@ -14,6 +14,8 @@ import com.ibm.icu.text.SimpleDateFormat;
 
 import model.Complain;
 import model.ComplainDAO;
+import model.ComplaintResponse;
+import model.ComplaintResponseDAO;
 
 @WebServlet("/StatusCheck")
 public class StatusCheck extends HttpServlet {
@@ -26,30 +28,13 @@ public class StatusCheck extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int complainID=Integer.parseInt(request.getParameter("complainId"));
-	    Complain complain = new ComplainDAO().findComplainStatusByComplainId(complainID);
-		PrintWriter out = response.getWriter();
-		Date d=new Date();
-		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
-		String date = sdf.format(d);
-		String status=complain.getResponse().getStatus();
-		d=complain.getRegisteredOn();
-		out.print("<table border=0><tr><th>");
-		out.print("CompalainId");
-		out.print("</th><th>");
-		out.print("Date Of Complain");
-		out.print("</th><th>");
-		out.print("Status");
-		out.print("</th></tr><tr>");
-		out.print("<td>");
-		out.print(complainID+"</td");
-		out.print("<td>"+date+"</td>");
-		if(complain.getResponse()!=null) {
-		out.print("<td>"+status+"</td>");
-		}
-		else
-		{
-			out.print("<td>"+"currently no status"+"</td>");
-		}
-		out.print("</tr></table>");
-		}
+	    ComplaintResponse result = new ComplaintResponseDAO().getResponseByComplaintId(complainID);
+	    if(result!=null) {
+	    	request.setAttribute("complainId", result.getComplain().getId());
+	    	request.setAttribute("status", result.getStatus());
+	    	request.setAttribute("message", result.getAction());
+	    	response.getWriter().print(result.getStatus());
+	    	//request.getRequestDispatcher("status.jsp").include(request, response);
+	    }
+	}
 }

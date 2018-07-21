@@ -28,7 +28,7 @@ private String address;
 private String email;
 @Column(nullable=false,unique=true)
 private String phoneNumber;
-@OneToMany(mappedBy="userDetail",cascade=CascadeType.ALL)
+@OneToMany
 private Collection<Complain>complains=new TreeSet<>();
 @OneToOne(mappedBy="userDetail",cascade=CascadeType.ALL)
 private UserLogin userLogin;

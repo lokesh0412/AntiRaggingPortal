@@ -42,6 +42,12 @@ public class LoginServlet extends HttpServlet {
 	    	session.setAttribute("user",user);
 	        request.getRequestDispatcher("/student_dashboard2.jsp").forward(request, response);	    	
 	    }
+	    else if(user.getUserRole().getRoleType().equals("college_admin")) {
+	    	HttpSession session = request.getSession();
+	    	session.setMaxInactiveInterval(10*60);
+	    	session.setAttribute("user",user);
+	        request.getRequestDispatcher("/siteadmin_dashboard.jsp").forward(request, response);	    	
+	    }
 	    }
 	    else
 	    {

@@ -1,3 +1,4 @@
+<%@page import="com.anti.ragging.MailAcknowledgement"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*" %>
@@ -8,30 +9,26 @@ pageEncoding="ISO-8859-1"%>
 <title>Forgot Process</title>
 </head>
 <body>
+<jsp:useBean id="udao" class="model.UserLoginDAO" scope="session" />
 <%
-try
-{
-Class.forName("com.mysql.jdbc.Driver").newInstance();
-Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/anti_ragging","root","7275094178"); 
-Statement st=con.createStatement();
 String email=request.getParameter("email");
-String strQuery = "SELECT password FROM users where email='"+email+"'";
-ResultSet rs = st.executeQuery(strQuery);
-rs.next();
-String Countrow = rs.getString(1);
-if(Countrow.equals("1")){
-/*mail code
-paste your mail code here
-------------------
-Mail code*/
-out.println("Password send to your email id successfully !");
+String pass=udao.findPasswordByEmailId(email);
+if(pass!=null){
+	MailAcknowledgement.sendMail(email, pass);
+	%>
+	<script type="text/javascript">
+	alert("your password is sent to your emailId");
+	</script>
+	<% response.sendRedirect("login.jsp");%>
+	<%
 }
 else{
-out.println("Invalid Email Id !");
-}
-}
-catch (Exception e){
-e.printStackTrace();
+	%>
+	<script type="text/javascript">
+	alert("email id may be wrong");
+	</script>
+	<% response.sendRedirect("login.jsp");%>
+	<% 
 }
 %>
 </body>

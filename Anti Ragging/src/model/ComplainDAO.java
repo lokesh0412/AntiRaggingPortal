@@ -1,6 +1,8 @@
 package model;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.TreeSet;
 
 import org.hibernate.Query;
 import org.hibernate.Transaction;
@@ -49,5 +51,14 @@ public class ComplainDAO {
 		 Complain result = (Complain)session.get(Complain.class, complainId);
 		 return result;
 	}
+	/*public void updateComplainByComplainId(int id,UserDetail u) {
+		Session session = getSession();
+		Transaction trans = session.beginTransaction();
+		Complain complain=(Complain) session.load(Complain.class, id);
+		complain.setUserDetail(u);
+		trans.commit();
+		System.out.println("done");
+		
+	}*/
 }
 

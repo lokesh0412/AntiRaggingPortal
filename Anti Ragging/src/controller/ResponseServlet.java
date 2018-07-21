@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Complain;
+import model.ComplainDAO;
 import model.ComplaintResponse;
 import model.ComplaintResponseDAO;
 
@@ -37,11 +39,15 @@ public class ResponseServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id=Integer.parseInt(request.getParameter("complaintId"));
 		String status=request.getParameter("status");
-	    String action=request.getParameter("action");
+	    String action=request.getParameter("message");
+	    Complain complain = new ComplainDAO().getComplainById(id);
 	    ComplaintResponse complaintResponse=new ComplaintResponse(status,action);
+	    complaintResponse.setComplain(complain);
 	    ComplaintResponseDAO obj=new ComplaintResponseDAO();
 	    obj.addComplaintResponse(complaintResponse);
+	    response.sendRedirect("admin_dashboard.jsp");
 	}
 
 }

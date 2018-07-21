@@ -34,11 +34,55 @@ public class Complain implements Comparable<Complain>, Serializable {
 	private String raggingDetails;
 	@Column(columnDefinition = "BLOB")
 	private byte[] photoProof;
-	@ManyToOne(cascade=CascadeType.ALL)
-	private UserDetail userDetail;
-	@OneToOne(cascade=CascadeType.ALL)
-	private ComplaintResponse response;
+	@Column
+	private int uid;
+	public Complain(int id, String complainantName, String victimName, String email, String mobileNumber,
+			String collegeName, String yourAddress, int pincode, String state, Date registeredOn, String raggingDetails,
+			byte[] photoProof, int uid, ComplaintResponse response) {
+		super();
+		this.id = id;
+		this.complainantName = complainantName;
+		this.victimName = victimName;
+		this.email = email;
+		this.mobileNumber = mobileNumber;
+		this.collegeName = collegeName;
+		this.yourAddress = yourAddress;
+		this.pincode = pincode;
+		this.state = state;
+		this.registeredOn = registeredOn;
+		this.raggingDetails = raggingDetails;
+		this.photoProof = photoProof;
+		this.uid = uid;
+		this.response = response;
+	}
 
+	public Complain(int id, String complainantName, String victimName, String email, String mobileNumber,
+			String collegeName, String yourAddress, int pincode, String state, Date registeredOn, String raggingDetails,
+			byte[] photoProof, int uid) {
+		super();
+		this.id = id;
+		this.complainantName = complainantName;
+		this.victimName = victimName;
+		this.email = email;
+		this.mobileNumber = mobileNumber;
+		this.collegeName = collegeName;
+		this.yourAddress = yourAddress;
+		this.pincode = pincode;
+		this.state = state;
+		this.registeredOn = registeredOn;
+		this.raggingDetails = raggingDetails;
+		this.photoProof = photoProof;
+		this.uid = uid;
+	}
+
+	@OneToOne
+	private ComplaintResponse response;
+	public int getUid() {
+		return uid;
+	}
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
 	public ComplaintResponse getResponse() {
 		return response;
 	}
@@ -54,15 +98,6 @@ public class Complain implements Comparable<Complain>, Serializable {
 	public void setComplainantName(String complainantName) {
 		this.complainantName = complainantName;
 	}
-
-	public UserDetail getUserDetail() {
-		return userDetail;
-	}
-
-	public void setUserDetail(UserDetail userDetail) {
-		this.userDetail = userDetail;
-	}
-
 	public Complain() {
 		super();
 		this.id = 0;

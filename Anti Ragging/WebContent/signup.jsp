@@ -105,6 +105,14 @@ body {
 </style>
 </head>
 <body class="text-center" style="background-color: #E3F79E">
+<% String message = (String)request.getAttribute("alertMsg");
+if(message!=null){
+%>
+<script type="text/javascript">
+    var msg = "<%=message%>";
+    alert(msg);
+</script>
+<% }%>
 	<form action="SignUpServlet" method="post">
 		<div class="container">
 			<h1 class="well">Sign up</h1>
