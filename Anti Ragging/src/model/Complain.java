@@ -53,7 +53,6 @@ public class Complain implements Comparable<Complain>, Serializable {
 		this.raggingDetails = raggingDetails;
 		this.photoProof = photoProof;
 		this.uid = uid;
-		this.response = response;
 	}
 
 	public Complain(int id, String complainantName, String victimName, String email, String mobileNumber,
@@ -74,23 +73,12 @@ public class Complain implements Comparable<Complain>, Serializable {
 		this.photoProof = photoProof;
 		this.uid = uid;
 	}
-
-	@OneToOne
-	private ComplaintResponse response;
 	public int getUid() {
 		return uid;
 	}
 	public void setUid(int uid) {
 		this.uid = uid;
 	}
-	public ComplaintResponse getResponse() {
-		return response;
-	}
-
-	public void setResponse(ComplaintResponse response) {
-		this.response = response;
-	}
-
 	public String getComplainantName() {
 		return complainantName;
 	}
@@ -98,57 +86,6 @@ public class Complain implements Comparable<Complain>, Serializable {
 	public void setComplainantName(String complainantName) {
 		this.complainantName = complainantName;
 	}
-	public Complain() {
-		super();
-		this.id = 0;
-		this.complainantName = null;
-		this.victimName = null;
-		this.email = null;
-		this.mobileNumber = null;
-		this.collegeName = null;
-		this.yourAddress = null;
-		this.pincode = 0;
-		this.state = null;
-		this.registeredOn = null;
-		this.raggingDetails = null;
-		this.photoProof = null;
-	}
-
-	public Complain(int id, String complainantName, String victimName, String email, String mobileNumber,
-			String collegeName, String yourAddress, int pincode, String state, Date registeredOn, String raggingDetails,
-			byte[] photoProof) {
-		super();
-		this.id = id;
-		this.complainantName = complainantName;
-		this.victimName = victimName;
-		this.email = email;
-		this.mobileNumber = mobileNumber;
-		this.collegeName = collegeName;
-		this.yourAddress = yourAddress;
-		this.pincode = pincode;
-		this.state = state;
-		this.registeredOn = registeredOn;
-		this.raggingDetails = raggingDetails;
-		this.photoProof = photoProof;
-	}
-
-	public Complain(String complainantName, String victimName, String email, String mobileNumber, String collegeName,
-			String yourAddress, int pincode, String state, Date registeredOn, String raggingDetails,
-			byte[] photoProof) {
-		super();
-		this.complainantName = complainantName;
-		this.victimName = victimName;
-		this.email = email;
-		this.mobileNumber = mobileNumber;
-		this.collegeName = collegeName;
-		this.yourAddress = yourAddress;
-		this.pincode = pincode;
-		this.state = state;
-		this.registeredOn = registeredOn;
-		this.raggingDetails = raggingDetails;
-		this.photoProof = photoProof;
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -244,7 +181,56 @@ public class Complain implements Comparable<Complain>, Serializable {
 	public void setPhotoProof(byte[] photoProof) {
 		this.photoProof = photoProof;
 	}
+	public Complain() {
+		super();
+		this.id = 0;
+		this.complainantName = null;
+		this.victimName = null;
+		this.email = null;
+		this.mobileNumber = null;
+		this.collegeName = null;
+		this.yourAddress = null;
+		this.pincode = 0;
+		this.state = null;
+		this.registeredOn = null;
+		this.raggingDetails = null;
+		this.photoProof = null;
+	}
 
+	public Complain(int id, String complainantName, String victimName, String email, String mobileNumber,
+			String collegeName, String yourAddress, int pincode, String state, Date registeredOn, String raggingDetails,
+			byte[] photoProof) {
+		super();
+		this.id = id;
+		this.complainantName = complainantName;
+		this.victimName = victimName;
+		this.email = email;
+		this.mobileNumber = mobileNumber;
+		this.collegeName = collegeName;
+		this.yourAddress = yourAddress;
+		this.pincode = pincode;
+		this.state = state;
+		this.registeredOn = registeredOn;
+		this.raggingDetails = raggingDetails;
+		this.photoProof = photoProof;
+	}
+
+	public Complain(String complainantName, String victimName, String email, String mobileNumber, String collegeName,
+			String yourAddress, int pincode, String state, Date registeredOn, String raggingDetails,
+			byte[] photoProof) {
+		super();
+		this.complainantName = complainantName;
+		this.victimName = victimName;
+		this.email = email;
+		this.mobileNumber = mobileNumber;
+		this.collegeName = collegeName;
+		this.yourAddress = yourAddress;
+		this.pincode = pincode;
+		this.state = state;
+		this.registeredOn = registeredOn;
+		this.raggingDetails = raggingDetails;
+		this.photoProof = photoProof;
+	}
 	@Override
 	public int compareTo(Complain arg0) {
 		return this.getId() - arg0.getId();

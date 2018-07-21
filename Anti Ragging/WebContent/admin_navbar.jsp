@@ -54,6 +54,8 @@
                     </li>
                     <li><a href="allComplains.jsp">COMPLAINS</a>
                     </li>
+                    <li><a href="report.jsp">REPORT</a>
+                    </li>
                     <li><a href="Feedback.jsp">FEEDBACKS</a>
                     </li>
                      <li><a href="#contact">CONTACT</a>

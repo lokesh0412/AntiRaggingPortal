@@ -28,13 +28,12 @@ public class StatusCheck extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int complainID=Integer.parseInt(request.getParameter("complainId"));
-	    ComplaintResponse result = new ComplaintResponseDAO().getResponseByComplaintId(complainID);
+	    ComplaintResponse result = new ComplaintResponseDAO().getComplaintResponseByComplainId(complainID);
+	    PrintWriter out = response.getWriter();
 	    if(result!=null) {
-	    	request.setAttribute("complainId", result.getComplain().getId());
-	    	request.setAttribute("status", result.getStatus());
-	    	request.setAttribute("message", result.getAction());
-	    	response.getWriter().print(result.getStatus());
-	    	//request.getRequestDispatcher("status.jsp").include(request, response);
+        out.println("ComplainID="+" "+result.getComplainId());
+        out.println("status="+" "+result.getStatus());
+        out.println("message="+" "+result.getAction());
 	    }
 	}
 }

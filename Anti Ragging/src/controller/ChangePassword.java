@@ -6,23 +6,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import model.Complain;
-import model.ComplainDAO;
-import model.ComplaintResponse;
-import model.ComplaintResponseDAO;
+import org.apache.log4j.lf5.viewer.LogFactor5InputDialog;
+
+import model.UserLogin;
+import model.UserLoginDAO;
 
 /**
- * Servlet implementation class ResponseServlet
+ * Servlet implementation class ChangePassword
  */
-@WebServlet("/ResponseServlet")
-public class ResponseServlet extends HttpServlet {
+@WebServlet({ "/ChangePassword", "/change" })
+public class ChangePassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ResponseServlet() {
+    public ChangePassword() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,13 +40,11 @@ public class ResponseServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id=Integer.parseInt(request.getParameter("complaintId"));
-		String status=request.getParameter("status");
-	    String action=request.getParameter("message");
-	    Complain complain = new ComplainDAO().getComplainById(id);
-	    ComplaintResponse complaintResponse=new ComplaintResponse(status,action,id);
-	    new ComplaintResponseDAO().addComplaintResponse(complaintResponse);
-	    response.sendRedirect("admin_dashboard.jsp");
+      String password=request.getParameter("password");
+      HttpSession session = request.getSession(false);
+      UserLogin user = (UserLogin)session.getAttribute("user");
+      new UserLoginDAO().changePasswordById(user.getId(), password);
+      System.out.println("password changed succefully");
 	}
 
 }

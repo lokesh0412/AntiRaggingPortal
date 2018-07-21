@@ -56,4 +56,13 @@ public class UserLoginDAO {
 		}
 		return pass;
 	}
+	public void changePasswordById(int id,String password) {
+		Session session = getSession();
+		Transaction trans = session.beginTransaction();
+		UserLogin user=(UserLogin) session.get(UserLogin.class, id);
+		user.setPassword(password);
+		session.persist(user);
+		trans.commit();
+		session.close();
+	}
 }
