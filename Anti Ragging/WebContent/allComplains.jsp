@@ -33,7 +33,7 @@ session.setAttribute("comps", complains);
 <td>${c.id}</td>
 <td>${c.complainantName}</td>
 <td>${c.registeredOn}</td>
-<td><a href="complaintResponse.jsp?id=${c.id}">Detail</a></td>
+<td><a href="complainDetails.jsp?id=${c.id}">Detail</a></td>
 <td><a href="complaintResponse.jsp?id=${c.id}">Response</a></td>
 </tr>
 </c:forEach>   

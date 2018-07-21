@@ -23,7 +23,7 @@
 	</script>
 </head>
 <body>
-	<jsp:include page="index.html"></jsp:include>
+	<jsp:include page="index.jsp"></jsp:include>
 	<div class="container">
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" role="dialog">
